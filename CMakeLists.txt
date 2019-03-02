@@ -17,4 +17,4 @@ configure_file(
 # Add the binary/build directory to the include path
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_executable(cmaketut main.cpp Mouse.cpp Mouse.h)
+add_executable(cmaketut main.cpp Mouse.cpp Mouse.h DataSet.cpp DataSet.h)
