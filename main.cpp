@@ -52,6 +52,13 @@ int main(int argc, char *argv[]) {
 
 
     myDataSet.printDataset();
+    std::cout << "Save dataset to persistent storage...";
+    int numChars = myDataSet.saveDataset();
+    if (numChars < 0) {
+        cerr << "Save dataset failed!" << std::endl;
+    } else {
+        std::cout << "Save dataset success." << std::endl;
+    }
 
     return 0;
 }
