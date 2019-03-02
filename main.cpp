@@ -30,6 +30,8 @@ int main(int argc, char *argv[]) {
     // Git training.
     // This is a modification done to master branch which is to be merged into the string-exp
     // branch.
+    // This change was made after creating the string-exp branch, causing the master branch
+    // to advance separate from string-exp branch.
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     map<double,double>(10.0, 10.0);
