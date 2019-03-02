@@ -6,13 +6,20 @@
 //
 //
 
-#ifndef CMAKETUT_FILEWRITER_H
-#define CMAKETUT_FILEWRITER_H
+#ifndef CMAKETUT_DATASET_H
+#define CMAKETUT_DATASET_H
 
+#include <string>
 
 class DataSet {
+private:
+    std::string dataSetBuffer;         // Dataset buffer - simple example a string array
+    // char dataSetBuffer[256];        // Dataset buffer - simple example a string array
 
+public:
+    DataSet();                      // Default constructor
+    void printDataset();            // Create a nice output of the dataset.
 };
 
 
-#endif //CMAKETUT_FILEWRITER_H
+#endif //CMAKETUT_DATASET_H

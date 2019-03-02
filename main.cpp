@@ -3,6 +3,7 @@
 #include "TutorialConfig.h"
 
 #include "Mouse.h"      // Class Mouse
+#include "DataSet.h"    // DataSet (container for data)
 
 // Example template function
 template <typename K, typename V>
@@ -14,17 +15,25 @@ void map(K key, V value) {
 int main(int argc, char *argv[]) {
     std::cout << "Hello, World!" << std::endl;
 
+    // Create a DataSet instance.
+    DataSet myDataSet = DataSet();
+
+
     Mouse mouse ("Logitec", "123456789");
     std::cout << "My mose is: " << mouse.getBrand() << " with serial number " << mouse.getSerial() << std::endl;
     mouse.setBrand("Microsoft");
     std::cout << "New mouse is: " << mouse.getBrand() << " with serial number " << mouse.getSerial() << std::endl;
 
+    std::cout << "Tutorial program Version " << Tutorial_VERSION_MAJOR << "." << Tutorial_VERSION_MINOR << std::endl;
+
+    /*
     if (argc < 2) {
         std::cout << "Tutorial program Version " << Tutorial_VERSION_MAJOR << "." << Tutorial_VERSION_MINOR << std::endl;
         std::cout << "Usage: " << argv[0] << " <number>" << std::endl;
 
         return 1;
     }
+    // */
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     // Git training.
@@ -36,6 +45,9 @@ int main(int argc, char *argv[]) {
 
     map<double,double>(10.0, 10.0);
     map<int, int>(10, 10);
+
+
+    myDataSet.printDataset();
 
     return 0;
 }
