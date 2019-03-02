@@ -1,0 +1,3 @@
+// Configured options and settings for project/program to be passed on to application from CMakeLists.txt file
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
