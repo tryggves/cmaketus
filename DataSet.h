@@ -15,7 +15,14 @@
 class DataSet {
 private:
     FILE *dsFile;                       // File stream handler reference
-    const std::string persistFileName = "dataset.txt";  // File where to store the data set.
+    const std::string persistFileName = "dataset.txt";
+public:
+    const std::string &getDataSetBuffer() const;
+
+    void setDataSetBuffer(const std::string &dataSetBuffer);
+
+private:
+    // File where to store the data set.
     std::string dataSetBuffer;         // Dataset buffer - simple example a string array
     // char dataSetBuffer[256];        // Dataset buffer - simple example a string array
 

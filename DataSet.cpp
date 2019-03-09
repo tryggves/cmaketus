@@ -91,3 +91,11 @@ int DataSet::readDataset() {
 
     return numCharsRead;
 }
+
+const std::string &DataSet::getDataSetBuffer() const {
+    return dataSetBuffer;
+}
+
+void DataSet::setDataSetBuffer(const std::string &dataSetBuffer) {
+    DataSet::dataSetBuffer = dataSetBuffer;
+}

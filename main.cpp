@@ -1,5 +1,6 @@
 #include <iostream>
 #include <typeinfo>
+#include <ctime>
 #include "TutorialConfig.h"
 
 #include "Mouse.h"      // Class Mouse
@@ -52,6 +53,20 @@ int main(int argc, char *argv[]) {
 
 
     myDataSet.printDataset();
+
+    std::cout << "Set new dataset value..." << std::endl;
+
+    // These are used for getting the time and date
+    time_t  rawtime;
+    struct tm * timeinfo;
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    string timeStr = string(asctime(timeinfo));
+
+    myDataSet.setDataSetBuffer("New dataset string..." + timeStr);
+
+
+
     std::cout << "Save dataset to persistent storage...";
     int numChars = myDataSet.saveDataset();
     if (numChars < 0) {
