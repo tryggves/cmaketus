@@ -22,7 +22,23 @@ private:
 public:
     DataSet();                      // Default constructor
     void printDataset();            // Create a nice output of the dataset.
+
+    // Save dataset
+    // Parameters:
+    //      in: None
+    //      out: int    The number of bytes written to the dataset file.
+    //                  If error a negative value is returned.
     int saveDataset();              // Persist dataset to file
+
+    // Read dataset
+    // This method reads the dataset from persistent storage and populates the internal buffer
+    // Parameters:
+    //      in: None
+    //      out: int    The number of bytes read from the dataset file.
+    //                  If error a negative value is returned, for example if the file does not exist.
+    //                  This is a case that should be handled by the caller of the method.
+    int readDataset();
+
 };
 
 
