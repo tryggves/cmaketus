@@ -13,6 +13,21 @@ void map(K key, V value) {
     std::cout << "Parameter type: " << typeid(key).name() << std::endl;
 }
 
+
+// Utility function for getting date and time
+// Parameters:
+//      in: None
+//      out: string         The Data and time formatted as a string object
+
+string dateTime() {
+    // These are used for getting the time and date
+    time_t  rawtime;
+    struct tm * timeinfo;
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    return string(asctime(timeinfo));
+}
+
 int main(int argc, char *argv[]) {
     std::cout << "Hello, World!" << std::endl;
 
@@ -56,14 +71,9 @@ int main(int argc, char *argv[]) {
 
     std::cout << "Set new dataset value..." << std::endl;
 
-    // These are used for getting the time and date
-    time_t  rawtime;
-    struct tm * timeinfo;
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-    string timeStr = string(asctime(timeinfo));
 
-    myDataSet.setDataSetBuffer("New dataset string..." + timeStr);
+
+    myDataSet.setDataSetBuffer("New dataset string..." + dateTime());
 
 
 
