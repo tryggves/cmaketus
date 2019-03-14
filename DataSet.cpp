@@ -87,7 +87,7 @@ int DataSet::readDataset() {
     }
 
     // Create the string member holding the new string from the buffer.
-    dataSetBuffer.assign(buffer);
+    dataSetBuffer = buffer;
 
     return numCharsRead;
 }
@@ -96,6 +96,7 @@ const std::string &DataSet::getDataSetBuffer() const {
     return dataSetBuffer;
 }
 
-void DataSet::setDataSetBuffer(const std::string &dataSetBuffer) {
+void DataSet::setDataSetBuffer(const std::string dataSetBuffer) {
+    DataSet::dataSetBuffer.clear();
     DataSet::dataSetBuffer = dataSetBuffer;
 }

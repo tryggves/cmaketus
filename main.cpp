@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 
 
 
-    myDataSet.setDataSetBuffer("New dataset string..." + dateTime());
+    myDataSet.setDataSetBuffer ("Hello wotj lots of words.");
 
 
 

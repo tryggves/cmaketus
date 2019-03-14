@@ -19,7 +19,7 @@ private:
 public:
     const std::string &getDataSetBuffer() const;
 
-    void setDataSetBuffer(const std::string &dataSetBuffer);
+    void setDataSetBuffer(std::string dataSetBuffer);
 
 private:
     // File where to store the data set.
