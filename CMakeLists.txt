@@ -18,3 +18,5 @@ configure_file(
 include_directories("${PROJECT_BINARY_DIR}")
 
 add_executable(cmaketut main.cpp Mouse.cpp Mouse.h DataSet.cpp DataSet.h)
+
+add_executable(target2 target2.cpp DataSet.cpp DataSet.h)
