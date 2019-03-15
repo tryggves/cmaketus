@@ -72,16 +72,16 @@ int DataSet::readDataset() {
     lSize = ftell(dsFile);
     rewind(dsFile);
 
-    // Allocate temporary memory to contain file content
-    buffer = (char *) malloc(sizeof(char)*lSize);
+    // Allocate temporary memory to contain file content - add 1 for the terminating \0 character
+    buffer = (char *) malloc(sizeof(char)*(lSize + 1));
     if (buffer == nullptr) {
         fprintf(stderr, "Memory error\n");
         return (-1);
     }
 
     // Read the dataset from the file
-    numCharsRead = fread(buffer, 1, lSize, dsFile);
-    if (numCharsRead != lSize) {
+    // Trouble with the reading, suspecting terminating \0 character - try fgets()
+    if (fgets(buffer, lSize+1, dsFile) == nullptr) {
         fprintf(stderr, "Reading dataset error!\n");
         return (-1);
     }
