@@ -32,7 +32,8 @@ int main(int argc, char *argv[]) {
     std::cout << "Hello, World!" << std::endl;
 
     // Create a DataSet instance.
-    DataSet myDataSet = DataSet();
+    DataSet myDataSet;
+    myDataSet = DataSet("DStest01");
 
 
     Mouse mouse ("Logitec", "123456789");
@@ -69,11 +70,11 @@ int main(int argc, char *argv[]) {
 
     myDataSet.printDataset();
 
-    std::cout << "Set new dataset value..." << std::endl;
+    std::cout << "Set new dataset value for dataset: " << myDataSet.getDsName() << std::endl;
 
 
 
-    myDataSet.setDataSetBuffer ("Hello world!");
+    myDataSet.setDataSetBuffer ("Hello world! " + dateTime());
 
 
 

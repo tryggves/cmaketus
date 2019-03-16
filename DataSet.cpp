@@ -9,6 +9,27 @@
 DataSet::DataSet() {
     int numCharsInDataset;
 
+    // Set the default name of dataset
+    dsName = "dataset";
+    // Append the suffix to the file name
+    persistFileName = dsName+".txt";
+
+    numCharsInDataset = readDataset();
+    if (numCharsInDataset < 0) {
+        // Either file not exist or fatal error in method
+        // Just set the default value
+        fprintf(stderr, "Setting default value for dataset.\n");
+        dataSetBuffer = "Hello world!";
+    }
+}
+
+// Constructor with custom specific dataset name
+DataSet::DataSet(const std::string datasetName) {
+    int numCharsInDataset;
+
+    dsName = datasetName;
+    persistFileName = dsName+".txt";
+
     numCharsInDataset = readDataset();
     if (numCharsInDataset < 0) {
         // Either file not exist or fatal error in method
@@ -21,8 +42,10 @@ DataSet::DataSet() {
 
 // Print out the dataset
 void DataSet::printDataset() {
-    std::cout << "This is the content of the data set: " << std::endl
-        << dataSetBuffer << std::endl;
+    std::cout << "==============================================================" << std::endl
+        << "=== This is the content of the data set named: " << getDsName() << std::endl
+        << dataSetBuffer << std::endl
+        << "==============================================================" << std::endl;
 }
 
 // Persist the dataset to file
@@ -58,6 +81,7 @@ int DataSet::readDataset() {
     char * buffer;                              // Temporary buffer for dataset
     long lSize;                                 // Size of dataset
     int numCharsRead = 0;                       // Number of characters read
+
 
     // Open the persist file
     dsFile = fopen(persistFileName.c_str(), "r");
@@ -99,4 +123,8 @@ const std::string &DataSet::getDataSetBuffer() const {
 void DataSet::setDataSetBuffer(const std::string dataSetBuffer) {
     DataSet::dataSetBuffer.clear();
     DataSet::dataSetBuffer = dataSetBuffer;
+}
+
+const std::string &DataSet::getDsName() const {
+    return dsName;
 }
